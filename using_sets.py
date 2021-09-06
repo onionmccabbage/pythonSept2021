@@ -9,10 +9,10 @@ print(s)
 for item in s:
     print(item in s) # NOT a predictable order
 
-q = input('guess a value in the set: ')
+q = input('guess a value in the set: ') # every input is always a string
 if q in s:
     print('correct, the string {} exists in the set'.format(q))
-elif q.isnumeric():
+elif q.isnumeric() and float(q) in s: # also isalpha etc.
     print('correct, the number {} exists in the set'.format(q))
 elif q=='True' and True in s:
     print('correct, the boolean {} exist in the set'.format(q))
