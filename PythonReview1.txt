@@ -1,0 +1,36 @@
+Python Review 1 see https://pastebin.com/KDPz0Zc2
+=============== about 40 minutes until 2:40
+Use this as a coding challenge. Alter it as you see fit
+Feel free to search online for help, or ask each other, or ask me
+At the end, I'll invite anyone to share what they did
+
+Create a Python file to implement the following game: 
+Ask the user to guess a random number by entering a positive integer from 0-100 (or -1 to quit)
+
+Details:
+--------
+Create a random number between 0 and 100 using the following code)
+  from random import randint
+  r = randint(0,100)
+
+When the user types in a number tell them if it's too high or too low (e.g. use a while loop)
+When they guess correctly (or enter -1), tell them and stop the program
+
+If time
+-------
+If the user enters -2, give them a clue:
+- Is the number even/odd, a square and/or a prime number
+- Use code structures to determine the clues
+For example you might:
+- Generate a collection of the even numbers from 0-100
+- Generate a collection of squares of 0-10
+- Use the following code to create a tuple of the prime numbers under 100:
+primes = (2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97)
+
+Optional Ideas
+--------------
+Use 'if' logic to make sure the user is entering integers and ignore non-numeric guesses (use isnumeric)
+Store each guess by appending it to a list. At the end show all the numbers they guessed
+Allow the user to choose the number range (and therefore the difficulty)
+Give feedback like 'much too small' 'a bit higher', 'close' etc. based on their guess
+Suggest a number which would be sensible to guess next, based on their last guess
