@@ -1,6 +1,9 @@
 # Python review exercise: guess the random number between 0-100
 from random import randint # we need a way to make random numbers
 
+# def input(): # avoid key words when naimng your functions!!
+#     return True
+
 def game():
     target = randint(0,100) # up to 100 inclusive
     # create collections of odds, evens, squares and primes
