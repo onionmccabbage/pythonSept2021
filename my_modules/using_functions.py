@@ -6,7 +6,7 @@ def doStuff(some_value):
 x=0
 
 while x<5: # CAREFUL - we need a way to stop the while loop!!!
-    # break # this will ALWAYS stop teh while loop
+    # break # this will ALWAYS stop the while loop
     x += 1
     doStuff(x)
 
