@@ -3,7 +3,7 @@ Python Review 2 see https://pastebin.com/w8CAnnrU
 Overview: ask the user for a category and an id. Use these to make a call to an API
 Write the returned data to a text file
 
-This is a chance to explore Python - altr the brief to suit your thinking
+This is a chance to explore Python - alter the brief to suit your thinking
 Look online, talk ot each other, ask me etc.
 
 Details: Write a new module which asks the user for a 'category' and an 'id' 
