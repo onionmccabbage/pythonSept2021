@@ -1,0 +1,42 @@
+Python Review 2 see https://pastebin.com/w8CAnnrU
+=============== for about 1 to 1hr20 ish (i.e. until tea break at 3:00)
+Overview: ask the user for a category and an id. Use these to make a call to an API
+Write the returned data to a text file
+
+This is a chance to explore Python - altr the brief to suit your thinking
+Look online, talk ot each other, ask me etc.
+
+Details: Write a new module which asks the user for a 'category' and an 'id' 
+(remember to use input() which always returns a string)
+Validate the user input as follows:
+- The category may only be one of 'users', 'posts, 'albums' or 'photos'
+  (maybe use the 'in' operator to see if the value is in a tuple of permitted values)
+- The id must be a positive integer in the range 1-8
+After you ask the user for category and id values, build a string something like this: 
+- 'https://jsonplaceholder.typicode.com/{}/{}'
+Use .format() to inject the 'category' and 'id' into the curly brackets
+
+Use the 'requests' library to make a 'get' call to this end-point API
+Tell the user what was returned by using a nicely formatted string
+Also write the data ot a text file (append)
+
+If Time
+=======
+Write try-except blocks around some of your code (e.g. the api access)
+
+Optional
+========
+We need to ensure the two parameters are in the required form:
+Write a module containing a function called 'cleanup' which receives positional or keyword arguments (as you see fit)
+However you pass the arguments, the cleanup function should ensure:
+- there is a value for the 'category' as a non-empty string containing one of the permitted categories
+- there is a value for the 'id' as a positive integer
+If category or id is missing or unacceptable, you should provide sensible defaults
+ (or, for example, if id is a floating point number or a string, try to cast it as an int() )
+Import and use your 'cleanup' function to sanitize the user-provided data
+
+You can retrieve ALL posts from this API from this URL:
+  'https://jsonplaceholder.typicode.com/posts' # or /users etc.
+The API end-point includes a number of 'posts' for each user
+When a request is made for an individual user, retreive ALL the posts then show just those posts that match the user
+
