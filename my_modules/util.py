@@ -1,6 +1,8 @@
 # this is a useful utility module
 # we need a function which checks that a value is a number
 
+# NB in older pyhton <3.6 we must include __init__.py inside package folders
+
 def checkInt(i):
     '''
     This utility checks a value is an integer
@@ -10,7 +12,7 @@ def checkInt(i):
     if type(i) == int:
         return i # all good - just return the integer
     else:
-        # we can use exceptipn handling
+        # we can use exception handling
         try:
             i = int(float(i)) # take the value and convert it first to a float then to an int
         except Exception as e:
