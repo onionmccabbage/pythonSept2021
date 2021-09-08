@@ -15,12 +15,13 @@ class Person(): # implicitly inherits from 'object'
     e.g. print out the person details nicely
     '''
     # the __init__ method is OPTIONAL!!!! but if present it MUST take self as an argument
-    def __init__(self, name, email, age, date_joined): # this runs automatically when we make an instance
+    def __init__(self, name, email, age, date_joined, access_level): # this runs automatically when we make an instance
         self.name = name # this is directly accessible
         self.__email = email # not directly accessible
         self.__age = age # using __age is called 'name mangling' and prevents direct access to the property
         # we might need a read-only property
-        self.date_joined = date_joined
+        self.__date_joined = date_joined # we MUST directly set the __ value (no setter method)
+        self.access_level = access_level # appears to give direct access but actually uses the setter method
     # if we need to, we can add functions to our class (known as methods - things the class can do)
     def showDetailsNicely(self): # all class methods MUST take self as an argument
         # we can nicely format the properties of this class
@@ -47,6 +48,17 @@ class Person(): # implicitly inherits from 'object'
             self.name = new_name
         else:
             pass
+    @property 
+    def access_level(self):
+        return self.__access_level
+    @access_level.setter
+    def access_level(self, new_level):
+        # validate the level
+        levels_t = ('guest', 'user', 'admin', 'super')
+        if new_level in levels_t:
+            self.__access_level = new_level
+        else:
+            self.__access_level = 'guest' # default to guest
     @property # decorator syntax - built in to python
     def email(self): # the method name must match the property
         return self.__email # return the __email property as if it was a property called 'email'
@@ -67,12 +79,13 @@ if __name__ == '__main__':
     # we need a date object
     import datetime # part of the Python standard library
     dt = datetime.datetime.now() # grabs the moment in time
-
-    p = Person('Timnit', 't@g.ie', 42, dt) # this will automatically run the __init__ method
+    p = Person('Timnit', 't@g.ie', 42, dt, 'admin') # this will automatically run the __init__ method
     # we can acces the date but we cannot change it
     print(p.date_joined)
     # p.date_joined = dt # fails - it is read-only
-    
+    p.access_level = 'super' # works
+    p.access_level = 'root' # fails - defaults to guest
+    print(p.access_level) # uses the accessor method to return __access_level
     p.age = 24 # we cannot directly access this member of the class - instead makes an arbtrary property!!!
     p.__age = 24 # nope - cannot mutate __age directly
     # p.email actually invokes the email property setter method
