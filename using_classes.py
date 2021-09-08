@@ -71,6 +71,20 @@ class Person(): # implicitly inherits from 'object'
     @property
     def date_joined(self):
         return self.__date_joined # read only since there is no setter method
+    # we can override the built-in __str__ method, so print will behave how we choose
+    def __str__(self):
+        # we can build nice printable output
+        pretty = 'Name: {} Age: {}\n'.format(self.name, self.__age)
+        pretty += 'Email: {} Joined: {}\n'.format(self.email, self.date_joined)
+        pretty += 'Access: {}'.format(self.access_level)
+        return pretty # return the whole string (to be used the the print statement)
+    # method only accessible from within the class
+    def __increase_age(self): # __ means this method is NOT availabe outside the class
+        # if a year has passed since they joined, then icrement the age by one
+        current = datetime.datetime.now()
+        if current - self.date_joined > 365: # roughly one year!!!
+            self.__date_joined += 365
+
 
 if __name__ == '__main__':
     # we can make instances of our classes
@@ -80,7 +94,12 @@ if __name__ == '__main__':
     import datetime # part of the Python standard library
     dt = datetime.datetime.now() # grabs the moment in time
     p = Person('Timnit', 't@g.ie', 42, dt, 'admin') # this will automatically run the __init__ method
-    # we can acces the date but we cannot change it
+    
+    # we can print the instance  - print always uses the buit-in __str__ method
+    print(p)
+    
+    
+    # we can access the date but we cannot change it
     print(p.date_joined)
     # p.date_joined = dt # fails - it is read-only
     p.access_level = 'super' # works
