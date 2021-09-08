@@ -15,14 +15,18 @@ class Person(): # implicitly inherits from 'object'
     e.g. print out the person details nicely
     '''
     # the __init__ method is OPTIONAL!!!! but if present it MUST take self as an argument
-    def __init__(self, name, email, age): # this runs automatically when we make an instance
-        self.name = name
+    def __init__(self, name, email, age, date_joined): # this runs automatically when we make an instance
+        self.name = name # this is directly accessible
         self.__email = email # not directly accessible
         self.__age = age # using __age is called 'name mangling' and prevents direct access to the property
+        # we might need a read-only property
+        self.date_joined = date_joined
     # if we need to, we can add functions to our class (known as methods - things the class can do)
     def showDetailsNicely(self): # all class methods MUST take self as an argument
         # we can nicely format the properties of this class
-        return 'Name {0} Email {1} Age {2} years'.format(self.name, self.__email, self.__age)
+        # we should make the date look nicer via 'strftime'
+        pretty_date = self.__date_joined.strftime('%a %d %b %Y') # '%c for a pretty date
+        return 'Name {0} Email {1} Age {2} years Joined: {3}'.format(self.name, self.__email, self.__age, pretty_date)
     # we have the option of providing accessor and mutator methods (getter and setter)
     def getAge(self):
         return self.__age
@@ -52,11 +56,23 @@ class Person(): # implicitly inherits from 'object'
             self.__email = new_email
         else:
             pass
+    @property
+    def date_joined(self):
+        return self.__date_joined # read only since there is no setter method
 
 if __name__ == '__main__':
     # we can make instances of our classes
     t = Thing()
-    p = Person('Timnit', 't@g.ie', 42) # this will automatically run the __init__ method
+
+    # we need a date object
+    import datetime # part of the Python standard library
+    dt = datetime.datetime.now() # grabs the moment in time
+
+    p = Person('Timnit', 't@g.ie', 42, dt) # this will automatically run the __init__ method
+    # we can acces the date but we cannot change it
+    print(p.date_joined)
+    # p.date_joined = dt # fails - it is read-only
+    
     p.age = 24 # we cannot directly access this member of the class - instead makes an arbtrary property!!!
     p.__age = 24 # nope - cannot mutate __age directly
     # p.email actually invokes the email property setter method
