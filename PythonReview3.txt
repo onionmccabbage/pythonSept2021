@@ -1,0 +1,38 @@
+Python Review Exercise 3 see https://pastebin.com/8hi3XHL3
+======================== until tea time (at 3:00)
+We need a 'Weather' class
+Decide on properties and methods you think it should encapsulate, then build it
+Make sure to include read-only properties
+Override the __str__ method so it prints nicely
+Exercise the code by instantiating some weather objects
+(remember to use if __name__...)
+
+Details:
+--------
+Properties might include:
+- city (read-only non-empty string of at least 2 letters)
+- country code (read-only non-empty string of 2-3 letters)
+- description (read-writable non-empty string such as 'sunny', 'rainy' etc.)
+- temperature (read-writable floating point number)
+Methods might include:
+- Temperature in Kelvin: add 273 to the Celcius temperature
+- Capitalize: return a property with initial capital letters
+Make use of @property decorators and __ name mangling
+Write a __str__ method that returns a nicely formatted report of the weather, including 2dp for temperature
+
+Optional:
+---------
+Validate the country code to be one of a short tuple of permitted values
+  e.g. ('ie', 'fr', 'de', 'aus', 'gb')
+Also add properties for wind-speed and direction (maybe as a dictionary)
+Additional methods might include:
+- commit to file - write the weather instance values to a text file (named for the city/country)
+- retrieve from file - read back the values into a new weather instance (mayber ask which country they want)
+Import your class into another module which asks the user for values to populate a weather instance
+
+If Time:
+--------
+Extend your class into a 'CurrentWeather' class, which adds a date-time stamp to the weather
+Exercise this new class to create several weather reports for a given location at different times
+Handle exceptions elegantly
+
