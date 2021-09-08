@@ -1,0 +1,90 @@
+Python Training September 2021
+==============================
+
+Toby Dussek 
+
+Tea break until 3:15
+
+Monday
+> Welcome
+> https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAN__idsCNtUOU5LTDZDVTVNVkE2VjlaUVIwR1NIWVhJSS4u
+> overview of Python 3 (and Python 2)
+> where to write code: immediate and module
+> print() and input() also repr
+> maths operators and data types
+> validate input before casting it!!!!!
+> immutable strings
+> square bracket notation for iterable collections
+> memory efficiency
+> identifiers
+> boolean True and False
+> type and type conversion, also isinstance()
+> string manipulation
+> the if statement for conditional logic
+> Python indent syntax
+> Lists, Tuples and nesting collections
+> while loop and break, continue, pass, quit - quit will STOP the entire program, continue loops again
+> review exercise
+> dictionaries (non-numeric indexed iterable collections)
+- import, pip, libraries and modules
+> very big numeric values
+> looping with for
+> range, generators and comprehensions
+> set comprehension, list compresension, dictionary comprehension
+
+Tuesday
+> quick review of where we got to
+> by reference or by value
+> other kinds of Python
+> functions, *args, **kwargs
+> custom generator and yield
+> to add libraries to python:
+  - python -m ensurepip
+  - python –m pip install requests
+    (or any other library you need)
+> overview of testing
+> strings with triple quotes
+> docstring
+> architecture: modules __init__.py and __name__ == '__main__'
+> review exercise
+> File input and output
+  > read and write binary files
+> exception handling
+
+Wednesday
+> brief review so far
+> functions live in classes, which live in modules which live in packages
+> moving from Py2 to Py3
+  https://docs.python.org/3/howto/pyporting.html
+> PEP8 style guide
+> global and local scope 
+> string formatting syntax
+> data modeling structures
+> Objects and Classes (OOP)
+  - q we cannot make a truly immutable property of the classs (only access via methods)
+    we should use @property to prevent direct access, but we can ALWAYS add arbitrary properies and methods to a class
+> properties, methods, __str__
+> get/set as property decorators
+> name mangling
+> inheritance
+> intrinsic attributes: __doc__ etc.
+> documentation strings (docstring) for classes
+> special operators and overriding
+> review exercise
+> debug tools
+> virtual environments
+  https://www.python.org/dev/peps/pep-0405/
+- where to go from here:
+  https://pynative.com/python-exercises-with-solutions/
+  the next courses: advanced python then beyond advanced python
+- end of course feedback 
+- all my examples available for download here:
+  https://github.com/onionmccabbage/pythonSept2021
+
+https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAN__idsCNtUMlVMN0gwNzdFM1Y2V0ZCSlI2RFdVQldDMC4u
+
+
+Links
+- Python official site https://python.org
+- PEP8 style guiide https://www.python.org/dev/peps/pep-0008/
+- online Python interpreter https://repl.it/languages/Python3
